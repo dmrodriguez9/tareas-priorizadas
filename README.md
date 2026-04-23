@@ -75,10 +75,12 @@ cd frontend
 npm install
 ionic serve
 
-Acceso frontend:
-- http://localhost:8100
 
 ```
+
+### Acceso frontend:
+- http://localhost:8100
+
 ### Acceso desde dispositivo móvil (misma red WiFi)
 ionic serve --external
 - http://TU_IP_LOCAL:8100

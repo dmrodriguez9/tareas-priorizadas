@@ -1,0 +1,78 @@
+<!-- FORMULARIO -->
+<ion-card>
+  <ion-card-content>
+
+    <ion-item>
+      <ion-input 
+        [(ngModel)]="nuevaTarea.titulo" 
+        placeholder="Título">
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input 
+        [(ngModel)]="nuevaTarea.descripcion" 
+        placeholder="Descripción">
+      </ion-input>
+    </ion-item>
+
+   <ion-item>
+      <ion-select [(ngModel)]="nuevaTarea.prioridad" placeholder="Seleccione la prioridad">
+        <ion-select-option value="alta">Alta</ion-select-option>
+        <ion-select-option value="media">Media</ion-select-option>
+        <ion-select-option value="baja">Baja</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+   <ion-grid>
+      <ion-row class="ion-justify-content-center">
+        <ion-col size="auto">
+          <ion-button 
+            size="small"
+            (click)="agregarTarea()"
+            [disabled]="!nuevaTarea.titulo || !nuevaTarea.descripcion || !nuevaTarea.prioridad">
+            Agregar tarea
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+  </ion-card-content>
+</ion-card>
+
+<!-- LISTA CON SWIPE -->
+<ion-list>
+
+  <ion-item-sliding *ngFor="let tarea of tareas">
+
+    <ion-item lines="full" style="min-height: 90px;">
+      <ion-label>
+        <h2 style="font-size: 18px; font-weight: bold;">
+          {{ tarea.titulo }}
+        </h2>
+
+        <p>{{ tarea.descripcion }}</p>
+
+        <p style="color: gray;">
+          Prioridad: {{ tarea.prioridad }}
+        </p>
+      </ion-label>
+    </ion-item>
+
+    <!-- Deslizar derecha -->
+    <ion-item-options side="start">
+      <ion-item-option color="success" (click)="completar(tarea)">
+        ✔ Completar
+      </ion-item-option>
+    </ion-item-options>
+
+    <!-- Deslizar izquierda -->
+    <ion-item-options side="end">
+      <ion-item-option color="danger" (click)="eliminar(tarea)">
+        🗑 Eliminar
+      </ion-item-option>
+    </ion-item-options>
+
+  </ion-item-sliding>
+
+</ion-list>

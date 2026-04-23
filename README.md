@@ -74,8 +74,6 @@ uvicorn main:app --reload
 cd frontend
 npm install
 ionic serve
-
-
 ```
 
 ### Acceso frontend:
@@ -88,9 +86,11 @@ ionic serve --external
 
 ### Docker (opcional) 
 Este proyecto también puede ejecutarse con Docker.
-Requisitos
+## Requisitos
     Docker instalado
     Docker Compose habilitado
 
 Ejecutar todo el sistema:
+```
 docker-compose up --build
+```
